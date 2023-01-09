@@ -22,7 +22,7 @@ jobs:
       - name: upload build
         uses: actions/upload-artifact@v3
         with:
-          name: build-artifact
+          name: github-pages
           path: build
   deploy:
     needs: build
@@ -31,12 +31,16 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
+      - name: get project build
+        uses: actions/download-artifact@v3
+        with: 
+          name: github-pages
       - name: Setup Pages
         uses: actions/configure-pages@v2
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          name: build-artifact
+          name: github-pages
           # Upload entire repository
           path: '.'
       - name: Deploy to GitHub Pages

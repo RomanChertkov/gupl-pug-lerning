@@ -31,10 +31,10 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: get project build
-        uses: actions/download-artifact@v3
-        with: 
-          name: github-pages
+      # - name: get project build
+      #   uses: actions/download-artifact@v3
+      #   with: 
+      #     name: github-pages
       - name: Setup Pages
         uses: actions/configure-pages@v2
       - name: Upload artifact

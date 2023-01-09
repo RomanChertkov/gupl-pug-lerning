@@ -22,4 +22,5 @@ jobs:
     steps:
       - name: get project build
         uses: actions/download-artifact@v3
-        with: build-artifact
+        with: 
+          name: build-artifact

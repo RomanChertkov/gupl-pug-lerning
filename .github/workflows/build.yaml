@@ -1,5 +1,5 @@
 name: Build app
-on: [push, workflow_dispath]
+on: push
 job:
   build:
     runs-on: ubuntu-latest

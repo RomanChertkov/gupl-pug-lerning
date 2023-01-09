@@ -4,11 +4,11 @@ job:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: get repo code
+      -name: get repo code
       uses: actions/checkout@v3.3.0
-      - name: install deps
+      -name: install deps
       uses: npm ci
-      - name: build app 
+      -name: build app 
       uses: npm run build
       - name: upload build
       uses: actions/upload-artifact@v3

@@ -14,8 +14,8 @@ jobs:
       - name: upload build
         uses: actions/upload-artifact@v3
         with:
-         name: build-artifact
-         path: build
+          name: build-artifact
+          path: build
   deploy:
     needs: build
     runs-on: ubuntu-latest

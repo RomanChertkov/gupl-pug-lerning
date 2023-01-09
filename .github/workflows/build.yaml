@@ -1,5 +1,6 @@
 name: Build app
-on: push
+on: 
+  push:
 job:
   build:
     runs-on: ubuntu-latest
@@ -7,9 +8,9 @@ job:
       - name: get repo code
         uses: actions/checkout@v3.3.0
       - name: install deps
-        uses: npm ci
+        run: npm ci
       - name: build app 
-        uses: npm run build
+        run: npm run build
       - name: upload build
         uses: actions/upload-artifact@v3
         with:

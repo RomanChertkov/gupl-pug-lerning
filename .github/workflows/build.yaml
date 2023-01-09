@@ -1,24 +1,24 @@
 name: Build app
 on: [push, workflow_dispath]
 job:
-	build:
-		runs-on: ubuntu-latest
-		steps:
-			- name: get repo code
-				uses: actions/checkout@v3.3.0
-			- name: install deps
-				uses: npm ci
-			- name: build app 
-				uses: npm run build
-			- name: upload build
-				uses: actions/upload-artifact@v3
-				with:
-				 name: build-artifact
-				 path: build
-	deploy:
-		needs: build
-		runs-on: ubuntu-latest
-		steps:
-			- name: get project build
-				uses: actions/download-artifact@v3
-				with: build-artifact
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: get repo code
+        uses: actions/checkout@v3.3.0
+      - name: install deps
+        uses: npm ci
+      - name: build app 
+        uses: npm run build
+      - name: upload build
+        uses: actions/upload-artifact@v3
+        with:
+         name: build-artifact
+         path: build
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: get project build
+        uses: actions/download-artifact@v3
+        with: build-artifact
